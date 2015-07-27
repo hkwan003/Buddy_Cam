@@ -2,23 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
-              android:orientation="vertical"
-              android:paddingBottom="10dip"
-              android:paddingLeft="10dip"
-              android:paddingTop="10dip"
-              android:id="@+id/listview">
+              android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/cam_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#C20000"
-        android:textSize="14sp"
-        android:textStyle="bold" />
+        android:gravity="center_vertical|center_horizontal"/>
 
-    <TextView
-        android:id="@+id/ip_address"
-        android:layout_width="wrap_content"
+    <ListView
+        android:id="@+id/srListView"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
 
 </LinearLayout>

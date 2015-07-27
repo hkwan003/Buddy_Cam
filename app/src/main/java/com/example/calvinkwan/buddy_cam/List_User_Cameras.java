@@ -18,11 +18,13 @@ public class List_User_Cameras
         return camera_name;
     }
 
-    public void setCityState(String cityState) {
-        this.ip_address = cityState;
+    public void setCityState(String ip_address)
+    {
+        this.ip_address = ip_address;
     }
 
-    public String getCityState() {
+    public String getCityState()
+    {
         return ip_address;
     }
 }
