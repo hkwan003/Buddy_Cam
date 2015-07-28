@@ -4,13 +4,10 @@
               android:layout_height="fill_parent"
               android:orientation="vertical" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical|center_horizontal"/>
+    <include layout="@layout/toolbar" />
 
     <ListView
-        android:id="@+id/srListView"
+        android:id="@+id/listview_camera"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
 
