@@ -3,13 +3,13 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
               android:orientation="vertical"
-              android:paddingBottom="10dip"
-              android:paddingLeft="10dip"
-              android:paddingTop="10dip"
+              android:paddingBottom="10dp"
+              android:paddingLeft="10dp"
+              android:paddingTop="10dp"
               android:id="@+id/listview">
 
     <TextView
-        android:id="@+id/cam_username"
+        android:id="@+id/textview_camera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
@@ -17,7 +17,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/ip_address"
+        android:id="@+id/textview_ipcamera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"/>

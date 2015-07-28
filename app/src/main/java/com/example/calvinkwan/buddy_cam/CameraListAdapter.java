@@ -33,10 +33,10 @@ public class CameraListAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.custom_list_view, null);
+            convertView = mInflater.inflate(R.layout.list_item, null);
             holder = new ViewHolder();
-            holder.camera = (TextView) convertView.findViewById(R.id.cam_username);
-            holder.ipAddress = (TextView) convertView.findViewById(R.id.ip_address);
+            holder.camera = (TextView) convertView.findViewById(R.id.textview_camera);
+            holder.ipAddress = (TextView) convertView.findViewById(R.id.textview_ipcamera);
 
             convertView.setTag(holder);
         } else {
