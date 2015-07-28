@@ -9,6 +9,11 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="AppTheme.Toolbar" parent="AppTheme.Base">
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:actionMenuTextColor">@android:color/black</item>
+    </style>
+
     <style name="AppTheme" parent="AppTheme.Base" />
 
 </resources>
