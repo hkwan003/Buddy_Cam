@@ -23,43 +23,37 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ConnectivityManager connManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo mWifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo wifi = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 
-        if (mWifi.isConnected())
-        {
-            // Do whatever
-            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-            setSupportActionBar(toolbar);
-
-            ArrayList<IpCamera> cameraList = getSearchResults();
-
-            final ListView listView = (ListView) findViewById(R.id.listview_camera);
-            listView.setAdapter(new CameraListAdapter(getApplicationContext(), cameraList));
-
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> a, View v, int position, long id) {
-                    IpCamera ipCamera = (IpCamera) listView.getItemAtPosition(position);;
-                    Toast.makeText(getApplicationContext(), "this is my Toast message!!! =)", Toast.LENGTH_LONG).show();
-                }
-            });
-        }
-        else
-        {
-            //start intent to connection to wifi network
+        if (!wifi.isConnected()) {
             startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
         }
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        ArrayList<IpCamera> cameraList = getSearchResults();
+
+        final ListView listView = (ListView) findViewById(R.id.listview_camera);
+        listView.setAdapter(new CameraListAdapter(getApplicationContext(), cameraList));
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> a, View v, int position, long id) {
+                IpCamera ipCamera = (IpCamera) listView.getItemAtPosition(position);
+                Toast.makeText(getApplicationContext(), "this is my Toast message!!! =)", Toast.LENGTH_LONG).show();
+            }
+        });
+
     }
-    private ArrayList<IpCamera> getSearchResults()
-    {
+
+    private ArrayList<IpCamera> getSearchResults() {
         ArrayList<IpCamera> results = new ArrayList<IpCamera>();
 
         IpCamera sr = new IpCamera();
