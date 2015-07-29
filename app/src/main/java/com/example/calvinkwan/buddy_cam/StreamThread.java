@@ -102,9 +102,9 @@ public class StreamThread extends Thread{
 
     @Override
     public void run() {
-
+        if (!connect()) return;
         while (true) {
-            if (!connect()) return;
+
 
             try {
                 Mat image = readImage();
