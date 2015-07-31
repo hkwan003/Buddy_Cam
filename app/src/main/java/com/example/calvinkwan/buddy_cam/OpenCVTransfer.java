@@ -89,35 +89,6 @@ public class OpenCVTransfer extends AsyncTask<Void, OpenCVTransfer.InetHelper.Wr
 
         }
 
-        @Override
-        protected void onPreExecute() {
-            this.dialog.setMessage("Attempting to connect via Wifi");
-            this.dialog.show();
-
-            rev = new Mat(480, 640, CvType.CV_8UC3);
-            ret = new Mat(480, 640, CvType.CV_8UC3);
-            bmp = Bitmap.createBitmap(640, 480, Bitmap.Config.ARGB_8888);
-
-            controlHandle = new Handler();
-            controlHandle.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        if (serverSocket.isConnected()) {
-                            dataOutputStream.writeInt(Controller.keyDirection);
-                            dataOutputStream.writeInt(Controller.keyRotation);
-                            dataOutputStream.writeInt(Controller.orientationX);
-                            dataOutputStream.writeInt(Controller.orientationY);
-                            dataOutputStream.flush();
-
-                            controlHandle.postDelayed(this, 75);
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            }, 1000);
-        }
 
         @Override
         protected Void doInBackground(final Void ... unused)
@@ -174,7 +145,8 @@ public class OpenCVTransfer extends AsyncTask<Void, OpenCVTransfer.InetHelper.Wr
             return null;
         }
 
-        class Wrapper {
+        class Wrapper
+        {
             int type;
             Boolean status;
             Mat img;
@@ -192,8 +164,5 @@ public class OpenCVTransfer extends AsyncTask<Void, OpenCVTransfer.InetHelper.Wr
         public boolean isConnected() {
             return connected;
         }
-
-
-
     }
 }
